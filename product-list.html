@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Product Category | HUANGYAN SOURCING</title>
+<meta name="description" content="Browse B2B product references by category with search, sourcing focus filters and direct product inquiry access.">
+<link rel="icon" type="image/png" href="./assets/images/logo.png">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="./assets/js/global.js?v=20260710-7"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="./assets/css/global.css?v=20260710-6" rel="stylesheet">
+<link href="./assets/css/catalog.css?v=20260710-4" rel="stylesheet">
+</head>
+<body class="catalog-page text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-energy-red selection:text-white">
+<section class="xz-topbar"><div class="xz-topbar__inner"><span class="xz-topbar__label">HUANGYAN SOURCING | China Sourcing &amp; Supply Chain Partner</span><a class="xz-topbar__label" href="tel:+8657689177781">Call Us 24/7&nbsp;&nbsp;+0576-89177781</a></div></section>
+
+<nav class="xz-header">
+<div class="xz-header__inner">
+<a class="xz-header__brand" href="./index.html"><span class="xz-header__brand-mark"><img src="./assets/images/logo.png" alt="HUANGYAN SOURCING"></span><span class="xz-header__brand-copy"><span class="xz-header__brand-name">HUANGYAN</span><span class="xz-header__brand-tagline">Sourcing &amp; Supply Chain</span></span></a>
+<div class="xz-header__nav">
+<a href="./index.html">Home</a><a href="./about.html">About</a>
+<div class="xz-header__products-dropdown" data-products-dropdown><div class="xz-header__products-trigger"><a class="is-active" href="./products.html" aria-current="page">Products</a><button class="xz-header__products-toggle" type="button" aria-label="Toggle product categories" title="Product categories" aria-controls="xz-products-menu" data-products-toggle><span class="material-symbols-outlined">expand_more</span></button></div><div class="xz-header__products-menu" id="xz-products-menu" data-products-menu></div></div>
+<a href="./services.html">Services</a><a href="./news.html">News</a><a href="./contact.html">Contact</a>
+</div>
+<div class="xz-header__actions"><a class="xz-header__cta" href="./contact.html#inquiry">Request a Quote</a></div>
+<div class="xz-header__mobile"><button class="xz-header__mobile-btn" type="button" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path><path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg></button></div>
+</div>
+</nav>
+
+<main>
+<section class="catalog-hero catalog-hero--category">
+<div class="catalog-hero__media"><img data-category-cover src="./assets/images/categories/maternity-baby.webp" alt="Maternity and baby product sourcing category"></div>
+<div class="catalog-hero__overlay"></div>
+<div class="catalog-container catalog-hero__content">
+<div class="catalog-hero__copy">
+<div class="catalog-breadcrumb"><a href="./index.html">Home</a><span class="material-symbols-outlined">chevron_right</span><a href="./products.html">Products</a><span class="material-symbols-outlined">chevron_right</span><span data-breadcrumb-category>Maternity &amp; Baby</span></div>
+<div class="catalog-kicker catalog-kicker--light">Product Category</div>
+<h1 data-category-title>Maternity &amp; Baby</h1>
+<p data-category-description>Feeding, care, tableware and daily-use products developed for maternity, newborn and infant product programs.</p>
+<div class="catalog-hero__actions"><a class="catalog-button" href="#product-list">Browse Products <span class="material-symbols-outlined">arrow_downward</span></a><a class="catalog-button catalog-button--light-outline" href="./contact.html#inquiry">Request Category Sourcing <span class="material-symbols-outlined">arrow_forward</span></a></div>
+</div>
+</div>
+</section>
+
+<section id="product-list" class="catalog-list-section">
+<div class="catalog-container catalog-list-layout">
+<aside class="catalog-sidebar" aria-label="Product categories">
+<div class="catalog-sidebar__heading"><small>Product Directory</small><h2>All Categories</h2></div>
+<nav class="catalog-category-nav" data-category-navigation aria-label="Switch product category"></nav>
+</aside>
+
+<div class="catalog-list-content">
+<div class="catalog-toolbar">
+<div class="catalog-toolbar__left"><div class="catalog-toolbar__result" data-result-count><strong>0</strong> product references</div><label class="catalog-toolbar__search"><span class="material-symbols-outlined">search</span><input data-list-search type="search" placeholder="Search products" aria-label="Search products in category"></label></div>
+<div class="catalog-toolbar__controls">
+<select class="catalog-sort" data-sort aria-label="Sort products"><option value="default">Sort by Publish Date</option><option value="name-asc">Name: A to Z</option><option value="name-desc">Name: Z to A</option></select>
+<div class="catalog-view-toggle" aria-label="Product view"><button class="is-active" type="button" data-view-mode="grid" aria-label="Grid view" title="Grid view"><span class="material-symbols-outlined">grid_view</span></button><button type="button" data-view-mode="list" aria-label="List view" title="List view"><span class="material-symbols-outlined">view_agenda</span></button></div>
+</div>
+</div>
+<div class="catalog-product-grid catalog-list-grid" data-list-grid aria-live="polite"></div>
+<div class="catalog-empty-state" data-empty-state><span class="material-symbols-outlined">search_off</span><h3>No matching products</h3><p>Try another keyword or clear the current product focus filters.</p></div>
+<div class="catalog-pagination" data-pagination aria-label="Product pagination"></div>
+</div>
+</div>
+</section>
+
+<section class="catalog-support" aria-label="Category sourcing support">
+<div class="catalog-container catalog-support__inner">
+<div class="catalog-support__item"><span class="catalog-support__icon"><span class="material-symbols-outlined">photo_camera</span></span><div><strong>Source by Photo</strong><p>Share a reference image when the exact item is not listed.</p></div></div>
+<div class="catalog-support__item"><span class="catalog-support__icon"><span class="material-symbols-outlined">compare_arrows</span></span><div><strong>Compare Suppliers</strong><p>Review suitable supply options through one coordination point.</p></div></div>
+<div class="catalog-support__item"><span class="catalog-support__icon"><span class="material-symbols-outlined">inventory_2</span></span><div><strong>Confirm Packaging</strong><p>Coordinate retail, e-commerce and export packaging needs.</p></div></div>
+<div class="catalog-support__item"><span class="catalog-support__icon"><span class="material-symbols-outlined">fact_check</span></span><div><strong>Follow the Order</strong><p>Keep product information and supplier feedback aligned.</p></div></div>
+</div>
+</section>
+
+<section class="catalog-cta">
+<div class="catalog-cta__media"><img src="./assets/images/Home-Banner-BG-1.webp" alt="Product sourcing inquiry and supplier coordination"></div><div class="catalog-cta__overlay"></div>
+<div class="catalog-container catalog-cta__inner"><div class="catalog-cta__copy"><div class="catalog-kicker catalog-kicker--light">Need Another Product?</div><h2>Send a photo, specification or target price.</h2><p>The online list is a starting point. HUANGYAN SOURCING can continue matching products and suppliers based on your market and purchasing brief.</p></div><a class="catalog-button" href="./contact.html#inquiry">Start Product Sourcing <span class="material-symbols-outlined">arrow_forward</span></a></div>
+</section>
+</main>
+
+<footer class="bg-deep-navy text-white">
+<div class="border-b border-white/10"><div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-12"><div class="grid gap-10 lg:grid-cols-12">
+<div class="lg:col-span-4"><div class="mb-6 flex items-center gap-3"><img class="h-12 w-12 object-contain" src="./assets/images/logo.png" alt="HUANGYAN SOURCING"><div><p class="font-headline-lg-mobile text-white">HUANGYAN</p><p class="font-label-sm uppercase text-surface-dim">Sourcing &amp; Supply Chain</p></div></div><img class="footer-map" src="./assets/images/maps.webp" alt="HUANGYAN SOURCING regional resource map"></div>
+<div class="lg:col-span-2"><h3 class="mb-5 font-headline-lg-mobile text-white">Product Categories</h3><ul class="space-y-3 font-body-md text-surface-dim"><li><a class="transition-colors hover:text-energy-red" href="./product-list.html?category=pet-supplies">Pet Supplies</a></li><li><a class="transition-colors hover:text-energy-red" href="./product-list.html?category=footwear">Footwear</a></li><li><a class="transition-colors hover:text-energy-red" href="./product-list.html?category=bags-luggage">Bags &amp; Luggage</a></li><li><a class="transition-colors hover:text-energy-red" href="./product-list.html?category=kitchenware">Kitchenware</a></li><li><a class="transition-colors hover:text-energy-red" href="./products.html">More +</a></li></ul></div>
+<div class="lg:col-span-2"><h3 class="mb-5 font-headline-lg-mobile text-white">Services</h3><ul class="space-y-3 font-body-md text-surface-dim"><li><a class="transition-colors hover:text-energy-red" href="./services.html#product-sourcing">Product Sourcing</a></li><li><a class="transition-colors hover:text-energy-red" href="./services.html#supplier-matching">Supplier Matching</a></li><li><a class="transition-colors hover:text-energy-red" href="./services.html#supply-chain-management">Supply Chain Management</a></li><li><a class="transition-colors hover:text-energy-red" href="./services.html#export-logistics">Export &amp; Logistics</a></li><li><a class="transition-colors hover:text-energy-red" href="./services.html#market-connection">Market Connection</a></li></ul></div>
+<div class="lg:col-span-4"><h3 class="mb-5 font-headline-lg-mobile text-white">Contact HUANGYAN SOURCING</h3><div class="space-y-4 font-body-md text-surface-dim"><a class="flex gap-3 transition-colors hover:text-energy-red" href="mailto:info@huangyansourcing.com"><span class="material-symbols-outlined text-energy-red text-[20px]">mail</span><span>info@huangyansourcing.com</span></a><a class="flex gap-3 transition-colors hover:text-energy-red" href="tel:+8657689177781"><span class="material-symbols-outlined text-energy-red text-[20px]">call</span><span>+0576-89177781</span></a><div class="flex gap-3"><span class="material-symbols-outlined text-energy-red text-[20px]">location_on</span><span>Huangyan, Taizhou, Zhejiang, China</span></div></div><a href="./contact.html#inquiry" class="footer-submit-link mt-7 inline-flex items-center gap-2 rounded bg-energy-red px-6 py-3 font-label-sm uppercase tracking-wide text-white shadow-lg shadow-energy-red/20 transition-all hover:bg-primary active:scale-95">Submit Inquiry <span class="material-symbols-outlined text-sm">arrow_forward</span></a></div>
+</div></div></div></div><div class="max-w-container-max mx-auto px-margin-mobile py-5 text-center text-sm text-surface-dim md:px-gutter"><p>Copyright 2026 HUANGYAN SOURCING. All rights reserved.</p></div>
+</footer>
+
+<script src="./assets/js/catalog-data.js?v=20260710-1"></script>
+<script src="./assets/js/product-list.js?v=20260710-2"></script>
+</body>
+</html>
