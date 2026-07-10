@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="./assets/css/global.css?v=20260710-6" rel="stylesheet">
-<link href="./assets/css/index.css?v=20260709-22" rel="stylesheet">
+<link href="./assets/css/index.css?v=20260710-24" rel="stylesheet">
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-energy-red selection:text-white">
 <section class="xz-topbar">
@@ -78,13 +78,13 @@ Connecting global buyers with reliable manufacturers and product resources from 
 HUANGYAN SOURCING supports overseas buyers with product sourcing, supplier coordination, export support and all-category supply chain services.
 </p>
 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-<button class="bg-energy-red text-white px-8 py-4 rounded font-label-sm text-center uppercase tracking-wider hover:bg-primary transition-all active:scale-95 shadow-lg shadow-energy-red/20 flex items-center justify-center gap-2">
+<a href="./contact.html#inquiry" class="bg-energy-red text-white px-8 py-4 rounded font-label-sm text-center uppercase tracking-wider hover:bg-primary transition-all active:scale-95 shadow-lg shadow-energy-red/20 flex items-center justify-center gap-2">
 Request a Quote
 <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-<button class="bg-transparent border border-outline-variant text-white px-8 py-4 rounded font-label-sm text-center uppercase tracking-wider hover:bg-primary hover:border-primary transition-all active:scale-95 flex items-center justify-center gap-2">
+</a>
+<a href="./products.html" class="bg-transparent border border-outline-variant text-white px-8 py-4 rounded font-label-sm text-center uppercase tracking-wider hover:bg-primary hover:border-primary transition-all active:scale-95 flex items-center justify-center gap-2">
 View Products
-</button>
+</a>
 </div>
 </div>
 </div>
@@ -199,10 +199,10 @@ Taizhou Huangyan District Trade Group Co., Ltd. operates HUANGYAN SOURCING as a 
 </li>
 </ul>
 <div class="mt-6">
-<button class="bg-energy-red text-white px-6 py-3 rounded font-label-sm uppercase tracking-wide hover:bg-primary transition-colors active:scale-95 shadow-lg shadow-energy-red/20 flex items-center gap-2 w-fit">
+<a href="./about.html" class="bg-energy-red text-white px-6 py-3 rounded font-label-sm uppercase tracking-wide hover:bg-primary transition-colors active:scale-95 shadow-lg shadow-energy-red/20 flex items-center gap-2 w-fit">
 More About Huangyan
 <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
+</a>
 </div>
 </div>
 <div class="md:col-span-6 md:order-1 relative">
@@ -485,7 +485,7 @@ Tell us your target product category, quantity, market requirements and cooperat
 </div>
 </div>
 <div class="lg:col-span-6">
-<form class="inquiry-form bg-white p-6 shadow-2xl shadow-black/25 md:p-8">
+<form class="inquiry-form bg-white p-6 shadow-2xl shadow-black/25 md:p-8" data-home-inquiry>
 <div class="mb-6">
 <p class="font-label-sm uppercase text-energy-red">Cooperation Inquiry</p>
 <h3 class="font-headline-lg-mobile text-deep-navy text-[26px] font-extrabold leading-[1.2]">Submit your sourcing request</h3>
@@ -493,28 +493,29 @@ Tell us your target product category, quantity, market requirements and cooperat
 <div class="grid gap-4 sm:grid-cols-2">
 <label class="block">
 <span class="mb-2 block font-label-sm uppercase text-steel-gray">Name</span>
-<input class="w-full border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" type="text" placeholder="Your name">
+<input class="w-full border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" type="text" name="name" autocomplete="name" required placeholder="Your name">
 </label>
 <label class="block">
 <span class="mb-2 block font-label-sm uppercase text-steel-gray">Email</span>
-<input class="w-full border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" type="email" placeholder="Email address">
+<input class="w-full border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" type="email" name="email" autocomplete="email" required placeholder="Email address">
 </label>
 <label class="block sm:col-span-2">
 <span class="mb-2 block font-label-sm uppercase text-steel-gray">Product Category</span>
-<input class="w-full border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" type="text" placeholder="Pet supplies, footwear, home goods, machinery...">
+<input class="w-full border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" type="text" name="category" placeholder="Pet supplies, footwear, home goods, machinery...">
 </label>
 <label class="block sm:col-span-2">
 <span class="mb-2 block font-label-sm uppercase text-steel-gray">Message</span>
-<textarea class="min-h-[120px] w-full resize-y border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" placeholder="Target quantity, destination market, product requirements or cooperation plan"></textarea>
+<textarea class="min-h-[120px] w-full resize-y border border-slate-border bg-surface px-4 py-3 text-sm text-deep-navy outline-none transition-colors placeholder:text-sm focus:border-energy-red" name="message" required placeholder="Target quantity, destination market, product requirements or cooperation plan"></textarea>
 </label>
 </div>
 <div class="inquiry-form-actions">
-<button class="inquiry-form-actions__button inline-flex items-center justify-center gap-2 bg-energy-red px-7 py-3 font-label-sm uppercase tracking-wide text-white shadow-lg shadow-energy-red/20 transition-colors hover:bg-primary active:scale-95" type="button">
+<button class="inquiry-form-actions__button inline-flex items-center justify-center gap-2 bg-energy-red px-7 py-3 font-label-sm uppercase tracking-wide text-white shadow-lg shadow-energy-red/20 transition-colors hover:bg-primary active:scale-95" type="submit">
 Send Inquiry
 <span class="material-symbols-outlined text-sm">arrow_forward</span>
 </button>
 <p class="inquiry-form-actions__email text-sm text-steel-gray">Or email us directly: <a class="font-semibold text-energy-red" href="mailto:info@huangyansourcing.com">info@huangyansourcing.com</a></p>
 </div>
+<p class="mt-3 text-sm text-emerald-700" data-home-inquiry-status aria-live="polite"></p>
 </form>
 </div>
 </div>
@@ -585,7 +586,7 @@ Submit Inquiry
 </div>
 </footer>
 
-<script src="./assets/js/index.js?v=20260709-7"></script>
+<script src="./assets/js/index.js?v=20260710-10"></script>
 </body>
 </html>
 

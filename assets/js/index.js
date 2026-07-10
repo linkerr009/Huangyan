@@ -150,21 +150,15 @@
   };
 
   const links = Array.from(categoryList.querySelectorAll("[data-product-category]"));
-  let activeSlug = "";
-  let animationFrame = null;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let displayedSlug = "";
+  let requestedSlug = "";
+  let transitionPhase = "idle";
+  let leaveTimer = null;
+  let enterTimer = null;
 
-  function setFeaturedProducts(slug) {
-    if (!slug || slug === activeSlug) return;
-    activeSlug = slug;
+  function renderFeaturedProducts(slug) {
     const selected = productGroups[slug] || productGroups["pet-supplies"];
-
-    links.forEach((link) => {
-      link.classList.toggle("is-active", link.dataset.productCategory === slug);
-    });
-
-    if (animationFrame) {
-      window.cancelAnimationFrame(animationFrame);
-    }
 
     featureCards.forEach((card, index) => {
       const product = selected[index % selected.length];
@@ -172,16 +166,65 @@
       const title = card.querySelector("h3");
       if (!product || !image || !title) return;
 
-      card.classList.add("is-entering");
       image.src = product.image;
       image.alt = product.title;
       title.textContent = product.title;
     });
+  }
 
-    animationFrame = window.requestAnimationFrame(() => {
+  function finishEntrance() {
+    window.clearTimeout(enterTimer);
+    enterTimer = window.setTimeout(() => {
       featureCards.forEach((card) => card.classList.remove("is-entering"));
-      animationFrame = null;
+      transitionPhase = "idle";
+      enterTimer = null;
+
+      if (requestedSlug !== displayedSlug) {
+        beginTransition();
+      }
+    }, 280);
+  }
+
+  function beginTransition() {
+    if (transitionPhase !== "idle" || requestedSlug === displayedSlug) return;
+
+    if (reduceMotion) {
+      renderFeaturedProducts(requestedSlug);
+      displayedSlug = requestedSlug;
+      return;
+    }
+
+    transitionPhase = "leaving";
+    featureCards.forEach((card) => {
+      card.classList.remove("is-entering");
+      card.classList.add("is-leaving");
     });
+
+    window.clearTimeout(leaveTimer);
+    leaveTimer = window.setTimeout(() => {
+      renderFeaturedProducts(requestedSlug);
+      displayedSlug = requestedSlug;
+
+      featureCards.forEach((card) => {
+        card.classList.remove("is-leaving");
+        card.classList.add("is-entering");
+      });
+
+      transitionPhase = "entering";
+      leaveTimer = null;
+      finishEntrance();
+    }, 160);
+  }
+
+  function setFeaturedProducts(slug) {
+    if (!slug) return;
+    requestedSlug = slug;
+
+    links.forEach((link) => {
+      link.classList.toggle("is-active", link.dataset.productCategory === slug);
+    });
+
+    beginTransition();
   }
 
   links.forEach((link) => {
@@ -189,7 +232,10 @@
     link.addEventListener("focus", () => setFeaturedProducts(link.dataset.productCategory));
   });
 
-  setFeaturedProducts(links.find((link) => link.classList.contains("is-active"))?.dataset.productCategory || "pet-supplies");
+  const initialSlug = links.find((link) => link.classList.contains("is-active"))?.dataset.productCategory || "pet-supplies";
+  requestedSlug = initialSlug;
+  displayedSlug = initialSlug;
+  renderFeaturedProducts(initialSlug);
 })();
 
 (function () {
@@ -344,4 +390,44 @@
   });
 
   openItem(items.find((item) => item.classList.contains("is-open")) || items[0]);
+})();
+
+(function () {
+  const form = document.querySelector("[data-home-inquiry]");
+  if (!form) return;
+
+  const status = form.querySelector("[data-home-inquiry-status]");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const value = function (name) {
+      return form.elements.namedItem(name)?.value.trim() || "Not provided";
+    };
+
+    const subject = `Sourcing Inquiry - ${value("category")}`;
+    const body = [
+      "Hello HUANGYAN SOURCING Team,",
+      "",
+      "I would like to discuss a sourcing requirement.",
+      "",
+      `Name: ${value("name")}`,
+      `Email: ${value("email")}`,
+      `Product Category: ${value("category")}`,
+      "",
+      "Requirement:",
+      value("message"),
+      "",
+      "Best regards,",
+      value("name")
+    ].join("\n");
+
+    if (status) status.textContent = "Your email app will open with this inquiry filled in.";
+    window.location.href = `mailto:info@huangyansourcing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
 })();

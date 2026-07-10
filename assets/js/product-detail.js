@@ -140,7 +140,33 @@
           inquiryForm.reportValidity();
           return;
         }
-        if (inquiryStatus) inquiryStatus.textContent = "Thank you. Your product requirement has been recorded for follow-up.";
+
+        const value = function (name) {
+          return inquiryForm.elements.namedItem(name)?.value.trim() || "Not provided";
+        };
+
+        const subject = `Product Inquiry - ${product.title}`;
+        const body = [
+          "Hello HUANGYAN SOURCING Team,",
+          "",
+          "I would like to request sourcing support for the following product.",
+          "",
+          `Product: ${product.title}`,
+          `Product Ref: ${product.code}`,
+          `Name: ${value("name")}`,
+          `Email: ${value("email")}`,
+          `Company: ${value("company")}`,
+          `Target Quantity: ${value("quantity")}`,
+          "",
+          "Requirement:",
+          value("message"),
+          "",
+          "Best regards,",
+          value("name")
+        ].join("\n");
+
+        if (inquiryStatus) inquiryStatus.textContent = "Your email app will open with this product inquiry filled in.";
+        window.location.href = `mailto:info@huangyansourcing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
     }
   });
